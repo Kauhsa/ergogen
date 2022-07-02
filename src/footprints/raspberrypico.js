@@ -48,11 +48,12 @@ module.exports = {
         (module "RPi_Pico_SMD_TH" (layer F.Cu) (tedit 6224DF39)
           ${p.at /* parametric position */}
           (attr through_hole)
-          (fp_text user "${p.ref}" (at 0 0 180) (layer "F.Fab")
+          (fp_text reference "${p.ref}" (at 0 0 180) (layer "F.SilkS")
+            ${p.ref_hide}
             (effects (font (size 1 1) (thickness 0.15)))
             (tstamp 83184391-76ed-44f0-8cd0-01f89f157bdb)
           )
-          (fp_text value "RPi_Pico_SMD_TH" (at 0 2.159) (layer "F.Fab")
+          (fp_text value "RPi_Pico_SMD_TH" (at 0 2.159) (layer "F.SilkS")
             (effects (font (size 1 1) (thickness 0.15)))
             (tstamp 46cbe85d-ff47-428e-b187-4ebd50a66e0c)
           )
@@ -224,7 +225,7 @@ module.exports = {
             (effects (font (size 0.8 0.8) (thickness 0.15)))
             (tstamp ffa442c7-cbef-461f-8613-c211201cec06)
           )
-          
+
           (fp_line (start 10.5 4.9) (end 10.5 5.3) (layer "F.SilkS") (width 0.12) (tstamp 099473f1-6598-46ff-a50f-4c520832170d))
           (fp_line (start -10.5 -23.1) (end -10.5 -22.7) (layer "F.SilkS") (width 0.12) (tstamp 0c5dddf1-38df-43d2-b49c-e7b691dab0ab))
           (fp_line (start -10.5 -20.5) (end -10.5 -20.1) (layer "F.SilkS") (width 0.12) (tstamp 0ce1dd44-f307-4f98-9f0d-478fd87daa64))
