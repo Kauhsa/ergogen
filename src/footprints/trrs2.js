@@ -7,6 +7,7 @@ module.exports = {
     },
     params: {
       class: 'TRRS',
+      reverse: false,
     },
     body: p => {
       const standard = `
@@ -31,7 +32,7 @@ module.exports = {
       
       return `
         ${standard}
-        ${pins('', '-')})
+        ${p.param.reverse ? pins('-', '') : pins('', '-')})
       `
     }
   }
