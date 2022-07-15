@@ -14,7 +14,12 @@ module.exports = {
         (module 54-00176 (layer F.Cu) (tedit 5970F8E5)
   
         ${p.at /* parametric position */}   
-        
+
+        (fp_text reference "${p.ref}" (at 0 0 180) (layer Dwgs.User)
+          ${p.ref_hide}
+          (effects (font (size 1 1) (thickness 0.15)))
+        )
+
         ${''/* stabilizers */}
         (pad "" np_thru_hole circle (at 10.5 0) (size 1.4 1.4) (drill 1.4) (layers *.Cu *.Mask))
       `
