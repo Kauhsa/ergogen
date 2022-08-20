@@ -105,10 +105,14 @@ module.exports = {
             (effects (font (size 0.8 0.8) (thickness 0.15)))
             (tstamp 2b25e886-ded1-450a-ada1-ece4208052e4)
           )
-          (fp_text user "SWCLK" (at -5.7 26.2) (layer "F.SilkS")
-            (effects (font (size 0.8 0.8) (thickness 0.15)))
-            (tstamp 2eea20e6-112c-411a-b615-885ae773135a)
-          )
+
+          ${p.param.debug ? `
+            (fp_text user "SWCLK" (at -5.7 26.2) (layer "F.SilkS")
+              (effects (font (size 0.8 0.8) (thickness 0.15)))
+              (tstamp 2eea20e6-112c-411a-b615-885ae773135a)
+            )
+          ` : ''}
+          
           (fp_text user "3V3_EN" (at 13.7 -17.2 45) (layer "F.SilkS")
             (effects (font (size 0.8 0.8) (thickness 0.15)))
             (tstamp 2f3fba7a-cf45-4bd8-9035-07e6fa0b4732)
@@ -141,10 +145,12 @@ module.exports = {
             (effects (font (size 0.8 0.8) (thickness 0.15)))
             (tstamp 49b5f540-e128-4e08-bb09-f321f8e64056)
           )
-          (fp_text user "SWDIO" (at 5.6 26.2) (layer "F.SilkS")
-            (effects (font (size 0.8 0.8) (thickness 0.15)))
-            (tstamp 49fec31e-3712-4229-8142-b191d90a97d0)
-          )
+          ${p.param.debug ? `
+              (fp_text user "SWDIO" (at 5.6 26.2) (layer "F.SilkS")
+                (effects (font (size 0.8 0.8) (thickness 0.15)))
+                (tstamp 49fec31e-3712-4229-8142-b191d90a97d0)
+              )
+          ` : ''}
           (fp_text user "GP5" (at -12.8 -8.89 45) (layer "F.SilkS")
             (effects (font (size 0.8 0.8) (thickness 0.15)))
             (tstamp 4ce9470f-5633-41bf-89ac-74a810939893)
