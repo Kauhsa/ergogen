@@ -12,6 +12,30 @@
 //
 // note: hotswap and reverse can be used simultaneously
 
+const keepout = (p, x, y, radius) => {
+  const first = radius / 2
+  const second = first * 0.75
+  
+  return `(zone (net 0) (net_name "") (layers *.Cu) (hatch edge 0.508)
+    (connect_pads (clearance 0))
+    (min_thickness 0.254)
+    (keepout (tracks not_allowed) (vias not_allowed) (pads allowed) (copperpour allowed) (footprints allowed))
+    (fill (thermal_gap 0.508) (thermal_bridge_width 0.508))
+    (polygon
+      (pts
+        (xy ${p.xy(x + -second, y + -second)})
+        (xy ${p.xy(x + 0, y + -first)})
+        (xy ${p.xy(x + second, y + -second)})
+        (xy ${p.xy(x + first, y + 0)})
+        (xy ${p.xy(x + second, y + second)})
+        (xy ${p.xy(x + 0, y + first)})
+        (xy ${p.xy(x + -second, y + second)})
+        (xy ${p.xy(x + -first, y + 0)})
+      )
+    )
+  )`
+}
+
 module.exports = {
   nets: {
     from: undefined,
@@ -44,10 +68,13 @@ module.exports = {
     
       ${''/* middle shaft */}
       (pad "" np_thru_hole circle (at 0 0) (size 3.9878 3.9878) (drill 3.9878) (layers *.Cu *.Mask))
-
+      ${keepout(p, 0, 0, 3.9878 + 1)}
+      
       ${''/* stabilizers */}
       (pad "" np_thru_hole circle (at 5.08 0) (size 1.7018 1.7018) (drill 1.7018) (layers *.Cu *.Mask))
       (pad "" np_thru_hole circle (at -5.08 0) (size 1.7018 1.7018) (drill 1.7018) (layers *.Cu *.Mask))
+      ${keepout(p, 5.08, 0, 1.7018 + 1)}
+      ${keepout(p, -5.08, 0, 1.7018 + 1)}
       `
     const keycap = `
       ${'' /* keycap marks */}
